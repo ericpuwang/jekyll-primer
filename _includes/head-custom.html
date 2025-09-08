@@ -48,26 +48,38 @@
 {% endif %}
 
 {% if site.mermaid=="dark" or site.mermaid=="default" or site.mermaid=="neutral" or site.mermaid=="base" %}
-<script type="text/javascript" src="https://unpkg.com/mermaid@9.0.1/dist/mermaid.min.js">
+<script type="text/javascript" src="https://unpkg.com/mermaid@11.11.0/dist/mermaid.min.js">
 </script>
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         mermaid.mermaidAPI.initialize({
-            'theme': '{{site.mermaid}}'
+            startOnLoad: true,
+            'theme': '{{site.mermaid}}',
+            flowchart:{
+                useMaxWidth:false,
+                htmlLabels:true
+            }
         });
+        mermaid.init(undefined, '.language-mermaid');
     });
 </script>
 {% endif %}
 
 {% if site.mermaid=="forest" %}
-<script type="text/javascript" src="https://unpkg.com/mermaid@9.0.1/dist/mermaid.min.js">
+<script type="text/javascript" src="https://unpkg.com/mermaid@11.11.0/dist/mermaid.min.js">
 </script>
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         mermaid.mermaidAPI.initialize({
+            startOnLoad: true,
             'theme': '{{site.mermaid}}',
-            'themeVariables': { 'lineColor': 'green' }
+            'themeVariables': { 'lineColor': 'green' },
+            flowchart: {
+                useMaxWidth:false,
+                htmlLabels:true
+            }
         });
+        mermaid.init(undefined, '.language-mermaid');
     });
 </script>
 
